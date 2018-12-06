@@ -29,8 +29,10 @@ grid=RectangleAsset(30,30,gridline,white)
 
 #--------------------------------------------------------------------------------------------------------------------
 #Boarder
-boarderup = RectangleAsset(1,966, noline, white)
+boarderup = RectangleAsset(966,1, noline, black)
 Sprite(boarderup, (0,0))
+boarderdown = RectangleAsset(966,1, noline, black)
+Sprite(boarderdown, (0,511))
 
 
 
@@ -60,12 +62,19 @@ class Playerleft(Sprite):
 def wkey(event):
     PlayerLeft.y -=10
     Upcollisions = PlayerLeft.collidingWithSprites(boarderup)
-    if Upcollisions:
-        while Upcollisions:
-            PlayerLeft.y +=1
-            Upcollisions = PlayerLeft.collidingWithSprites(boarderup)
+    while Upcollisions:
+        PlayerLeft.y +=1
+        Upcollisions = PlayerLeft.collidingWithSprites(boarderup)
 myapp.listenKeyEvent('keydown', 'w', wkey)
 
+def skey(event):
+    PlayerLeft.y += 10
+    Downcollisions = PlayerLeft.collidingWithSprites(boarderdown)
+    while Downcollisions:
+        PlayerLeft.y -=1
+        Downcollisions = PlayerLeft.collidingWithSprites(boarderdown)
+
+myapp.listenKeyEvent('keydown', 's', skey)
 
 
 
