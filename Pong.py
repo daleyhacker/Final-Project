@@ -29,30 +29,19 @@ grid=RectangleAsset(30,30,gridline,white)
 
 #--------------------------------------------------------------------------------------------------------------------
 #Boarder
-boarderup = RectangleAsset(966,1, noline, black)
-Sprite(boarderup, (0,0))
-boarderdown = RectangleAsset(966,1, noline, black)
+boarderup = RectangleAsset(1016,1, noline, black)
+Sprite(boarderup, (0,100))
+boarderdown = RectangleAsset(1016,1, noline, black)
 Sprite(boarderdown, (0,511))
-
-
+boarderleft = RectangleAsset(1,511, noline, black)
+Sprite(boarderleft, (0,100))
+boarderright = RectangleAsset(1,511, noline, black)
+Sprite(boarderright, (1016,100))
+#--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
 player = RectangleAsset(50,200, blkline, black)
-PlayerRight = Sprite(player, (966,0))
 PlayerLeft = Sprite(player, (0,0))
-
-
-
-#Ball Sprite
-ball = CircleAsset(20, thinline, red)
-#Sprite(ball, (30, 30))
-
-class Ball(Sprite):
-    def __init__(self, x, y):
-        self.vy = 0
-        super().__init__(ball, (x, y))
-
-
 
 class Playerleft(Sprite):
     def __init__(self, x, y):
@@ -73,6 +62,39 @@ def skey(event):
     while Downcollisions:
         PlayerLeft.y -=1
         Downcollisions = PlayerLeft.collidingWithSprites(boarderdown)
+
+#--------------------------------------------------------------------------------------------------------------------
+#Player 2
+PlayerRight = Sprite(player, (966,0))
+
+class Playerright(Sprite):
+    def __init__(self, x, y):
+        self.vy = 0
+        super().__init__(player, (x, y))
+
+def uparrowkey(event):
+    PlayerRight.y -=10
+    Upcollisions = PlayerRight.collidingWithSprites(boarderup)
+    while Upcollisions:
+        PlayerLeft.y +=1
+        Upcollisions = PlayerRight.collidingWithSprites(boarderup)
+myapp.listenKeyEvent('keydown', 'uparrow', uparrowkey)
+
+
+#--------------------------------------------------------------------------------------------------------------------
+
+#Ball Sprite
+ball = CircleAsset(20, thinline, red)
+#Sprite(ball, (30, 30))
+
+class Ball(Sprite):
+    def __init__(self, x, y):
+        self.vy = 0
+        super().__init__(ball, (x, y))
+
+
+
+
 
 myapp.listenKeyEvent('keydown', 's', skey)
 
