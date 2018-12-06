@@ -4,7 +4,7 @@ Patrick Daley
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
-
+myapp = App()
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
@@ -28,6 +28,12 @@ gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
 #--------------------------------------------------------------------------------------------------------------------
+#Boarder
+boarderup = RectangleAsset(1,966, noline, white)
+Sprite(boarderup, (0,0))
+
+
+
 #Player 1
 player = RectangleAsset(50,200, blkline, black)
 PlayerRight = Sprite(player, (966,0))
@@ -44,19 +50,23 @@ class Ball(Sprite):
         self.vy = 0
         super().__init__(ball, (x, y))
 
-playerleft = None
+
 
 class Playerleft(Sprite):
-    def__init__(self, x, y):
+    def __init__(self, x, y):
         self.vy = 0
         super().__init__(player, (x, y))
 
 def wkey(event):
-    global playerleft
-    playerleft.y +=10
+    PlayerLeft.y -=10
+    Upcollisions = PlayerLeft.collidingWithSprites(boarderup)
+    if Upcollisions:
+        while Upcollisions:
+            PlayerLeft.y +=1
+            Upcollisions = PlayerLeft.collidingWithSprites(boarderup)
+myapp.listenKeyEvent('keydown', 'w', wkey)
 
 
 
 
-myapp = App()
 myapp.run()
