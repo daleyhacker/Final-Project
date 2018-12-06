@@ -30,7 +30,11 @@ grid=RectangleAsset(30,30,gridline,white)
 #--------------------------------------------------------------------------------------------------------------------
 #Boarder
 boarderup = RectangleAsset(1016,1, noline, black)
+class BoarderUp(Sprite):
+    def __init__(self, x, y):
+        super().__init__(player, (x, y))
 Sprite(boarderup, (0,100))
+
 boarderdown = RectangleAsset(1016,1, noline, black)
 Sprite(boarderdown, (0,511))
 boarderleft = RectangleAsset(1,511, noline, black)
@@ -82,12 +86,11 @@ myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
 
 def downarrowkey(event):
     PlayerRight.y +=10
-    Downcollisions = PlayerRight.collidingWithSprites(boarderup)
+    Downcollisions = PlayerRight.collidingWithSprites(boarderdown)
     while Downcollisions:
         PlayerLeft.y +=1
-        Downcollisions = PlayerRight.collidingWithSprites(boarderup)
+        Downcollisions = PlayerRight.collidingWithSprites(boarderdown)
 myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
-
 
 #--------------------------------------------------------------------------------------------------------------------
 
