@@ -29,12 +29,15 @@ grid=RectangleAsset(30,30,gridline,white)
 
 #--------------------------------------------------------------------------------------------------------------------
 #Player 1
-player1 = RectangleAsset(50,200, blkline, black)
-Sprite(player1)
+player = RectangleAsset(50,200, blkline, black)
+Player1 = Sprite(player, (966,0))
+Player2 = Sprite(player, (0,0))
+
+
 
 #Ball Sprite
-ball = CircleAsset(50, thinline, black)
-#Sprite(ball, 30, 30)
+ball = CircleAsset(20, thinline, red)
+Sprite(ball, (30, 30))
 
 #class Ball(Sprite):
     #def 
