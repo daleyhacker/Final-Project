@@ -30,17 +30,30 @@ grid=RectangleAsset(30,30,gridline,white)
 #--------------------------------------------------------------------------------------------------------------------
 #Player 1
 player = RectangleAsset(50,200, blkline, black)
-Player1 = Sprite(player, (966,0))
-Player2 = Sprite(player, (0,0))
+PlayerRight = Sprite(player, (966,0))
+PlayerLeft = Sprite(player, (0,0))
 
 
 
 #Ball Sprite
 ball = CircleAsset(20, thinline, red)
-Sprite(ball, (30, 30))
+#Sprite(ball, (30, 30))
 
-#class Ball(Sprite):
-    #def 
+class Ball(Sprite):
+    def __init__(self, x, y):
+        self.vy = 0
+        super().__init__(ball, (x, y))
+
+playerleft = None
+
+class Playerleft(Sprite):
+    def__init__(self, x, y):
+        self.vy = 0
+        super().__init__(player, (x, y))
+
+def wkey(event):
+    global playerleft
+    playerleft.y +=10
 
 
 
