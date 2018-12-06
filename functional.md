@@ -1,8 +1,11 @@
-# Title of Your Project Here
+Pong
 
 
 
 ## Functional Specification
+
+There will be a ball that bounces back and forth on the screen. There will also be to players that control a bar on their side. When the ball hits the bar, it will bounce the other way. A goal is scored when the ball goes by the player's bar. The first person to ten wins the game.
+Up arrow and down arrow will control player 1 and W and S will control player 2.
 
 This document should become the functional specification of the project you are working on.
 
