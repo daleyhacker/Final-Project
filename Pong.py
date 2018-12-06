@@ -78,7 +78,15 @@ def uparrowkey(event):
     while Upcollisions:
         PlayerLeft.y +=1
         Upcollisions = PlayerRight.collidingWithSprites(boarderup)
-myapp.listenKeyEvent('keydown', 'uparrow', uparrowkey)
+myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
+
+def downarrowkey(event):
+    PlayerRight.y +=10
+    Downcollisions = PlayerRight.collidingWithSprites(boarderup)
+    while Downcollisions:
+        PlayerLeft.y +=1
+        Downcollisions = PlayerRight.collidingWithSprites(boarderup)
+myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
 
 
 #--------------------------------------------------------------------------------------------------------------------
