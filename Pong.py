@@ -114,17 +114,17 @@ class Ball(Sprite):
         self.vy = 0
         self.xy = 0
         super().__init__(ball, (x, y))
-Ball(55,100)
 
-def step:
-    if Ball:
-        ball.vy += 1
-        ball.v+=ball.vy
-        ball.xy += 1
-        ball.x+=ball.xy
-        Downcollisions = Ball.collidingWithSprites(BoarderDown)
-        #if Down collisions 
-    
+ballsprite = Ball(55,100)
+
+def step():
+    ballsprite.vy = .1
+    ballsprite.y += ballsprite.vy
+    ballsprite.xy = .1
+    ballsprite.x += ballsprite.xy
+        Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
+    #if Down collisions 
+
 
 
 
