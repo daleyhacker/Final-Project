@@ -39,7 +39,7 @@ boarderdown = RectangleAsset(1016,1, blkline, black)
 class BoarderDown(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderdown, (x, y))
-BoarderDown(0,511)
+BoarderDown(0,510)
 
 boarderleft = RectangleAsset(1,511, blkline, black)
 class BoarderLeft(Sprite):
@@ -51,7 +51,7 @@ boarderright = RectangleAsset(1,511, blkline, black)
 class BoarderRight(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderright, (x, y))
-BoarderRight(1016,100)
+BoarderRight(1015,100)
 #Sprite(boarderright, (1016,100))
 #--------------------------------------------------------------------------------------------------------------------
 
