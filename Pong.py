@@ -29,26 +29,26 @@ grid=RectangleAsset(30,30,gridline,white)
 
 #--------------------------------------------------------------------------------------------------------------------
 #Boarder
-boarderup = RectangleAsset(1016,1, noline, black)
+boarderup = RectangleAsset(1016,1, blkline, black)
 class BoarderUp(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderup, (x, y))
 BoarderUp(0,100)
 
-boarderdown = RectangleAsset(1016,1, noline, black)
+boarderdown = RectangleAsset(1016,1, blkline, black)
 class BoarderDown(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderdown, (x, y))
 BoarderDown(0,511)
-boarderleft = RectangleAsset(1,511, noline, black)
+boarderleft = RectangleAsset(1,511, blkline, black)
 Sprite(boarderleft, (0,100))
-boarderright = RectangleAsset(1,511, noline, black)
+boarderright = RectangleAsset(1,511, blkline, black)
 Sprite(boarderright, (1016,100))
 #--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
 player = RectangleAsset(50,200, blkline, black)
-PlayerLeft = Sprite(player, (0,0))
+PlayerLeft = Sprite(player, (0,101))
 
 class Playerleft(Sprite):
     def __init__(self, x, y):
@@ -81,18 +81,18 @@ class Playerright(Sprite):
 
 def uparrowkey(event):
     PlayerRight.y -=10
-    Upcollisions = PlayerRight.collidingWithSprites(boarderup)
+    Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
     while Upcollisions:
         PlayerLeft.y +=1
-        Upcollisions = PlayerRight.collidingWithSprites(boarderup)
+        Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
 myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
 
 def downarrowkey(event):
     PlayerRight.y +=10
-    Downcollisions = PlayerRight.collidingWithSprites(boarderdown)
+    Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
     while Downcollisions:
         PlayerLeft.y +=1
-        Downcollisions = PlayerRight.collidingWithSprites(boarderdown)
+        Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
 myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
 
 #--------------------------------------------------------------------------------------------------------------------
