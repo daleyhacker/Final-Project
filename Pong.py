@@ -91,7 +91,7 @@ def downarrowkey(event):
     PlayerRight.y +=10
     Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
     while Downcollisions:
-        PlayerRight.y +=1
+        PlayerRight.y -=1
         Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
 myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
 
