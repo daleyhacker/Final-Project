@@ -46,9 +46,13 @@ class BoarderLeft(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderleft, (x, y))
 BoarderLeft(0,100)
-#Sprite(boarderleft, (0,100))
+
 boarderright = RectangleAsset(1,511, blkline, black)
-Sprite(boarderright, (1016,100))
+class BoarderRight(Sprite):
+    def __init__(self, x, y):
+        super().__init__(boarderright, (x, y))
+BoarderRight(1016,100)
+#Sprite(boarderright, (1016,100))
 #--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
@@ -113,8 +117,8 @@ class Ball(Sprite):
         super().__init__(ball, (x, y))
 Ball(55,100)
 
-def step:
-    if Ball
+#def step:
+#    if Ball
     
 
 
@@ -124,5 +128,5 @@ def step:
 
 
 
-myapp.run(step)
+myapp.run()
 
