@@ -105,6 +105,7 @@ class Ball(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(ball, (x, y))
+Ball(55,100)
 
 
 
