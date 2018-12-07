@@ -69,7 +69,7 @@ def skey(event):
     while Downcollisions:
         PlayerLeft.y -=1
         Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
-
+myapp.listenKeyEvent('keydown', 's', skey)
 #--------------------------------------------------------------------------------------------------------------------
 #Player 2
 PlayerRight = Sprite(player, (966,100))
@@ -111,7 +111,7 @@ Ball(55,100)
 
 
 
-myapp.listenKeyEvent('keydown', 's', skey)
+
 
 
 
