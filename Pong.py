@@ -52,7 +52,6 @@ class BoarderRight(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderright, (x, y))
 BoarderRight(1015,100)
-#Sprite(boarderright, (1016,100))
 #--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
@@ -117,8 +116,14 @@ class Ball(Sprite):
         super().__init__(ball, (x, y))
 Ball(55,100)
 
-#def step:
-#    if Ball
+def step:
+    if Ball:
+        ball.vy += 1
+        ball.v+=ball.vy
+        ball.xy += 1
+        ball.x+=ball.xy
+        Downcollisions = Ball.collidingWithSprites(BoarderDown)
+        #if Down collisions 
     
 
 
@@ -128,5 +133,5 @@ Ball(55,100)
 
 
 
-myapp.run()
+myapp.run(step)
 
