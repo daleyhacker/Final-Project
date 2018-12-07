@@ -118,13 +118,13 @@ class Ball(Sprite):
 ballsprite = Ball(55,100)
 
 def step():
-    ballsprite.vy = 3
+    ballsprite.vy = 1
     ballsprite.y += ballsprite.vy
     ballsprite.xy = 1
     ballsprite.x += ballsprite.xy
     Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
     if Downcollisions:
-        ballsprite.vy = -3
+        ballsprite.vy = -1
         ballsprite.vy += ballsprite.y
 
 
