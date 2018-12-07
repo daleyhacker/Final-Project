@@ -72,7 +72,7 @@ def skey(event):
 
 #--------------------------------------------------------------------------------------------------------------------
 #Player 2
-PlayerRight = Sprite(player, (966,0))
+PlayerRight = Sprite(player, (966,100))
 
 class Playerright(Sprite):
     def __init__(self, x, y):
