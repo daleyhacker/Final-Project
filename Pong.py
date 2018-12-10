@@ -154,11 +154,11 @@ def step():
         ball.y += ball.vy
         ball.vx = 5
         ball.x += ball.xy
-        
-    
     Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
     if Rightcollisions:
         print("right")
+        ballsprite.destroy()
+        
 #-------------------------------------------------------------------------------
 #Destroy ball when hits the other walls and create new one
 
