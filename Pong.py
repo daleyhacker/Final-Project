@@ -55,14 +55,13 @@ BoarderRight(1015,100)
 #--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
-player = RectangleAsset(50,200, blkline, black)
+player = RectangleAsset(15,200, blkline, black)
 #PlayerLeft = Sprite(player, (0,101))
 
 class Playerleft(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(player, (x, y))
-
 PlayerLeft = Playerleft(0, 101)
 
 def wkey(event):
@@ -88,8 +87,7 @@ class Playerright(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(player, (x, y))
-
-PlayerRight = Playerright(966,100)
+PlayerRight = Playerright(1000, 100)
 
 def uparrowkey(event):
     PlayerRight.y -=10
@@ -137,11 +135,11 @@ def step():
     if Downcollisions:
         ballsprite.vy = -5
         ballsprite.y += ballsprite.vy
-    PlayerLeftcollisions = ballsprite.collidingWithSprites(PlayerLeft)
+    PlayerLeftcollisions = ballsprite.collidingWithSprites(Playerleft)
     if PlayerLeftcollisions:
         ballsprite.vx = 5
         ballsprite.x += ballsprite.vx
-    PlayerRightcollisions = ballsprite.collidingWithSprites(PlayerRight)
+    PlayerRightcollisions = ballsprite.collidingWithSprites(Playerright)
     if PlayerRightcollisions:
         ballsprite.vx = -5
         ballsprite.x += ballsprite.vx
