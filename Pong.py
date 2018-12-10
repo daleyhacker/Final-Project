@@ -112,24 +112,40 @@ ball = CircleAsset(20, thinline, red)
 class Ball(Sprite):
     def __init__(self, x, y):
         self.vy = 0
-        self.xy = 0
+        self.vx = 0
         super().__init__(ball, (x, y))
 
-ballsprite = Ball(55,99)
+ballsprite = Ball(55,100)
+
+ballsprite.vy = 1
+ballsprite.vx = 1
 
 def step():
-    ballsprite.vy = ()
+    #ballsprite.vy = 1
+    ballsprite.y += ballsprite.vy
+    #ballsprite.vx = 1
+    ballsprite.x += ballsprite.vx
     Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
     if Upcollisions:
         ballsprite.vy = 1
         ballsprite.y += ballsprite.vy
-        ballsprite.xy = 1
-        ballsprite.x += ballsprite.xy
+        ballsprite.vx = 1
+        ballsprite.x += ballsprite.vx
     Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
-    if Downcollisions:
+    if Downcollisions:print("collision")
         ballsprite.vy = -1
-        ballsprite.vy += ballsprite.y
-
+        ballsprite.y += ballsprite.vy
+        ballsprite.vx = 1
+        ballsprite.x += ballsprite.vx
+    PlayerLeftcollisions = ballsprite.collidingWithSprites(PlayerLeft)
+    if PlayerLeftcollisions:
+        ballsprite.vx = 1
+        ballsprite.x += ballsprite.vx
+    PlayerRightcollisions = ballsprite.collidingWithSprites(PlayerRight)
+    if PlayerRightcollisions:
+        ballsprite.vx = -1
+        ballsprite.x += ballsprite.vx
+   
 
 
 
