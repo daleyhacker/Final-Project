@@ -56,12 +56,14 @@ BoarderRight(1015,100)
 
 #Player 1
 player = RectangleAsset(50,200, blkline, black)
-PlayerLeft = Sprite(player, (0,101))
+#PlayerLeft = Sprite(player, (0,101))
 
 class Playerleft(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(player, (x, y))
+
+PlayerLeft = Playerleft(0, 101)
 
 def wkey(event):
     PlayerLeft.y -=10
@@ -80,12 +82,14 @@ def skey(event):
 myapp.listenKeyEvent('keydown', 's', skey)
 #--------------------------------------------------------------------------------------------------------------------
 #Player 2
-PlayerRight = Sprite(player, (966,100))
+#PlayerRight = Sprite(player, (966,100))
 
 class Playerright(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(player, (x, y))
+
+PlayerRight = Playerright(966,100)
 
 def uparrowkey(event):
     PlayerRight.y -=10
