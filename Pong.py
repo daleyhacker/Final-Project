@@ -119,6 +119,7 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
+#-------------------------------------------------------------------------------
 ballsprite.vy = 5
 ballsprite.vx = 5
 
@@ -143,9 +144,12 @@ def step():
     if PlayerRightcollisions:
         ballsprite.vx = -5
         ballsprite.x += ballsprite.vx
-   
+#-------------------------------------------------------------------------------
+#Destroy ball when hits the other walls and create new one
 
-
+BoarderLeftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
+if BoarderLeftcollisions:
+    ballsprite.destroy
 
 
 
