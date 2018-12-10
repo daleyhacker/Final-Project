@@ -119,9 +119,18 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
+def SpaceKey(event):
+    if ballsprite:
+        None
+    elif:
+        ballsprite = Ball(55, 100)
+
+myapp.listenKeyEvent('keydown', 'spacekey', SpaceKey)
 #-------------------------------------------------------------------------------
 ballsprite.vy = 5
 ballsprite.vx = 5
+
+
 
 def step():
     #ballsprite.vy = 1
@@ -149,11 +158,11 @@ def step():
     if Leftcollisions:
         print("left")
         ballsprite.destroy()
-        ballsprite = Ball(55, 100)
-        ball.vy = 5
-        ball.y += ball.vy
-        ball.vx = 5
-        ball.x += ball.xy
+        #ballsprite = Ball(55, 100)
+        #ball.vy = 5
+        #ball.y += ball.vy
+        #ball.vx = 5
+        #ball.x += ball.xy
     Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
     if Rightcollisions:
         print("right")
