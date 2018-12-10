@@ -120,9 +120,9 @@ class Ball(Sprite):
 ballsprite = Ball(55,100)
 
 def SpaceKey(event):
-    if ballsprite:
-        None
-    elif:
+    if Rightcollisions:
+        ballsprite = Ball(55, 100)
+    if Leftcollisions:
         ballsprite = Ball(55, 100)
 
 myapp.listenKeyEvent('keydown', 'spacekey', SpaceKey)
