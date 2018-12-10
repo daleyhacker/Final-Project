@@ -119,54 +119,51 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
-def SpaceKey(event):
-    if Rightcollisions:
-        ballsprite = Ball(55, 100)
-    if Leftcollisions:
-        ballsprite = Ball(55, 100)
 
-myapp.listenKeyEvent('keydown', 'spacekey', SpaceKey)
 #-------------------------------------------------------------------------------
-ballsprite.vy = 5
-ballsprite.vx = 5
+if ballsprite:
+    ballsprite.vy = 5
+    ballsprite.vx = 5
 
 
 
 def step():
-    #ballsprite.vy = 1
-    ballsprite.y += ballsprite.vy
-    #ballsprite.vx = 1
-    ballsprite.x += ballsprite.vx
-    Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
-    if Upcollisions:
-        ballsprite.vy = 5
+    if ballsprite:
+        #ballsprite.vy = 1
         ballsprite.y += ballsprite.vy
-    Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
-    if Downcollisions:
-        ballsprite.vy = -5
-        ballsprite.y += ballsprite.vy
-    PlayerLeftcollisions = ballsprite.collidingWithSprites(Playerleft)
-    if PlayerLeftcollisions:
-        ballsprite.vx = 5
+        #ballsprite.vx = 1
         ballsprite.x += ballsprite.vx
-    PlayerRightcollisions = ballsprite.collidingWithSprites(Playerright)
-    if PlayerRightcollisions:
-        ballsprite.vx = -5
-        ballsprite.x += ballsprite.vx
-        
-    Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
-    if Leftcollisions:
-        print("left")
-        ballsprite.destroy()
-        #ballsprite = Ball(55, 100)
-        #ball.vy = 5
-        #ball.y += ball.vy
-        #ball.vx = 5
-        #ball.x += ball.xy
-    Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
-    if Rightcollisions:
-        print("right")
-        ballsprite.destroy()
+        Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
+        if Upcollisions:
+            ballsprite.vy = 5
+            ballsprite.y += ballsprite.vy
+        Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
+        if Downcollisions:
+            ballsprite.vy = -5
+            ballsprite.y += ballsprite.vy
+        PlayerLeftcollisions = ballsprite.collidingWithSprites(Playerleft)
+        if PlayerLeftcollisions:
+            ballsprite.vx = 5
+            ballsprite.x += ballsprite.vx
+        PlayerRightcollisions = ballsprite.collidingWithSprites(Playerright)
+        if PlayerRightcollisions:
+            ballsprite.vx = -5
+            ballsprite.x += ballsprite.vx
+            
+        Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
+        if Leftcollisions:
+            print("left")
+            ballsprite.destroy()
+            
+            #ballsprite = Ball(55, 100)
+            #ball.vy = 5
+            #ball.y += ball.vy
+            #ball.vx = 5
+            #ball.x += ball.xy
+        Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
+        if Rightcollisions:
+            print("right")
+            ballsprite.destroy()
         
 #-------------------------------------------------------------------------------
 #Destroy ball when hits the other walls and create new one
