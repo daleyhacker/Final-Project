@@ -117,8 +117,8 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
-ballsprite.vy = 1
-ballsprite.vx = 1
+ballsprite.vy = 5
+ballsprite.vx = 5
 
 def step():
     #ballsprite.vy = 1
@@ -127,23 +127,19 @@ def step():
     ballsprite.x += ballsprite.vx
     Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
     if Upcollisions:
-        ballsprite.vy = 1
+        ballsprite.vy = 5
         ballsprite.y += ballsprite.vy
-        ballsprite.vx = 1
-        ballsprite.x += ballsprite.vx
     Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
-    if Downcollisions:print("collision")
-        ballsprite.vy = -1
+    if Downcollisions:
+        ballsprite.vy = -5
         ballsprite.y += ballsprite.vy
-        ballsprite.vx = 1
-        ballsprite.x += ballsprite.vx
     PlayerLeftcollisions = ballsprite.collidingWithSprites(PlayerLeft)
     if PlayerLeftcollisions:
-        ballsprite.vx = 1
+        ballsprite.vx = 5
         ballsprite.x += ballsprite.vx
     PlayerRightcollisions = ballsprite.collidingWithSprites(PlayerRight)
     if PlayerRightcollisions:
-        ballsprite.vx = -1
+        ballsprite.vx = -5
         ballsprite.x += ballsprite.vx
    
 
