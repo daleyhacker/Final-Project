@@ -119,10 +119,7 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
-if ballsprite:
-    ballsprite = ballsprite
-else:
-    ballsprite = Ball(55,100)
+
 
 
 #-------------------------------------------------------------------------------
