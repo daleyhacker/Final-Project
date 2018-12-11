@@ -2,9 +2,11 @@
 Patrick Daley
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
+from ggame import App, Color, LineStyle, Sprite
+from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
-myapp = App()
+myapp = App(1017,512)
+
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
@@ -27,7 +29,7 @@ greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
-#--------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #Boarder
 boarderup = RectangleAsset(1016,1, blkline, black)
 class BoarderUp(Sprite):
@@ -52,7 +54,7 @@ class BoarderRight(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderright, (x, y))
 BoarderRight(1015,100)
-#--------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 #Player 1
 player = RectangleAsset(15, 100, blkline, black)
@@ -72,6 +74,7 @@ def wkey(event):
         Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
 myapp.listenKeyEvent('keydown', 'w', wkey)
 
+
 def skey(event):
     PlayerLeft.y += 10
     Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
@@ -79,7 +82,7 @@ def skey(event):
         PlayerLeft.y -=1
         Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
 myapp.listenKeyEvent('keydown', 's', skey)
-#--------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #Player 2
 #PlayerRight = Sprite(player, (966,100))
 
@@ -105,7 +108,7 @@ def downarrowkey(event):
         Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
 myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
 
-#--------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 #Ball Sprite
 ball = CircleAsset(20, thinline, red)
@@ -119,7 +122,19 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
+#-------------------------------------------------------------------------------
+#Score-tally marks
+score = RectangleAsset(5,30, blkline, green)
 
+class ScoreLeft(Sprite):
+    def __init__(self, x, y):
+        self.vy = 0
+        super().__init__(score, (x, y))
+
+class ScoreRight(Sprite):
+    def __init__(self, x, y):
+        self.vy = 0
+        super().__init__(score, (x, y))
 
 
 #-------------------------------------------------------------------------------
@@ -130,10 +145,9 @@ if ballsprite:
 
 
 def step():
+    global ballsprite
     if ballsprite:
-        #ballsprite.vy = 1
         ballsprite.y += ballsprite.vy
-        #ballsprite.vx = 1
         ballsprite.x += ballsprite.vx
         Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
         if Upcollisions:
@@ -151,25 +165,37 @@ def step():
         if PlayerRightcollisions:
             ballsprite.vx = -5
             ballsprite.x += ballsprite.vx
-            
+         #----------------------------------------------------------------------
+         #When ball hits wall behind the players
         Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
+        Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
         if Leftcollisions:
             print("Right Wins!")
-            ballsprite.destroy()
-            #ballsprite = Ball(55, 100)
-            #ball.vy = 5
-            #ball.y += ball.vy
-            #ball.vx = 5
-            #ball.x += ball.xy
-        Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
+            if ballsprite:
+                ballsprite.destroy()
+            ballsprite = Ball(900, 100)
+            ballsprite.vy = 5
+            ballsprite.y += ballsprite.vy
+            ballsprite.vx = -5
+            ballsprite.x += ballsprite.vx
         if Rightcollisions:
             print("Left Wins!")
             if ballsprite:
                 ballsprite.destroy()
-            #ballsprite = Ball(55, 100)
+            ballsprite = Ball(55, 100)
+            ballsprite.vy = 5
+            ballsprite.y += ballsprite.vy
+            ballsprite.vx = 5
+            ballsprite.x += ballsprite.vx
+        #-----------------------------------------------------------------------
+        Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
+        Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
+        if Leftcollisions:
+            ScoreLeft(5,5)
+            
+        
         
 #-------------------------------------------------------------------------------
-#Destroy ball when hits the other walls and create new one
 
 
 
