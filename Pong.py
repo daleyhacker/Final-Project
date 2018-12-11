@@ -55,7 +55,7 @@ BoarderRight(1015,100)
 #--------------------------------------------------------------------------------------------------------------------
 
 #Player 1
-player = RectangleAsset(15,200, blkline, black)
+player = RectangleAsset(15, 100, blkline, black)
 #PlayerLeft = Sprite(player, (0,101))
 
 class Playerleft(Sprite):
@@ -119,6 +119,11 @@ class Ball(Sprite):
 
 ballsprite = Ball(55,100)
 
+if ballsprite:
+    ballsprite = ballsprite
+else:
+    ballsprite = Ball(55,100)
+
 
 #-------------------------------------------------------------------------------
 if ballsprite:
@@ -152,9 +157,8 @@ def step():
             
         Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
         if Leftcollisions:
-            print("left")
+            print("Right Wins!")
             ballsprite.destroy()
-            
             #ballsprite = Ball(55, 100)
             #ball.vy = 5
             #ball.y += ball.vy
@@ -162,8 +166,10 @@ def step():
             #ball.x += ball.xy
         Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
         if Rightcollisions:
-            print("right")
-            ballsprite.destroy()
+            print("Left Wins!")
+            if ballsprite:
+                ballsprite.destroy()
+            #ballsprite = Ball(55, 100)
         
 #-------------------------------------------------------------------------------
 #Destroy ball when hits the other walls and create new one
