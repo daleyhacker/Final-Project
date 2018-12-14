@@ -146,11 +146,17 @@ Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
 Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
 ScoreLeft1 = None
 ScoreLeft2 = None
+ScoreLeft3 = None
+ScoreLeft4 = None
+ScoreLeft5 = None
 
 def step():
     global ballsprite
     global ScoreLeft1
     global ScoreLeft2
+    global ScoreLeft3
+    global ScoreLeft4
+    global ScoreLeft5
     
     if ballsprite:
         ballsprite.y += ballsprite.vy
@@ -179,7 +185,13 @@ def step():
             print("Right Wins!")
             if ballsprite:
                 ballsprite.destroy()
-            if ScoreLeft1 and Leftcollisions:
+            if ScoreLeft4 and Leftcollisions:
+                ScoreLeft5 = ScoreLeft(33,5)
+            elif ScoreLeft3 and Leftcollisions:
+                ScoreLeft4 = ScoreLeft(26,5)
+            elif ScoreLeft2 and Leftcollisions:
+                ScoreLeft3 = ScoreLeft(19,5)
+            elif ScoreLeft1 and Leftcollisions:
                 ScoreLeft2 = ScoreLeft(12,5)
             elif Leftcollisions:
                 ScoreLeft1 = ScoreLeft(5,5)
