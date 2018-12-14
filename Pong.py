@@ -210,8 +210,15 @@ def step():
                 ScoreLeft1 = ScoreLeft(5,5)
             
             if ScoreRight4 and Rightcollisions:
-                ScoreRight5 = ScoreLeft(
-             
+                ScoreRight5 = ScoreRight(984, 5)
+            elif ScoreRight3 and Rightcollisions:
+                ScoreRight4 = ScoreRight(992, 5)
+            elif ScoreRight2 and Rightcollisions:
+                ScoreRight3 = ScoreRight(1000, 5)
+            elif ScoreRight1 and Rightcollisions:
+                ScoreRight2 = ScoreLeft(1008, 5)
+            elif Rightcollisions:
+                ScoreRight1 = ScoreLeft(1016, 5)
             
             if ScoreLeft5:
                 print("Player Right Wins!")
