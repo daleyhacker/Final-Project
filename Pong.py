@@ -135,7 +135,7 @@ class ScoreRight(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(score, (x, y))
-#ScoreLeft(5,5)
+
 
 #-------------------------------------------------------------------------------
 if ballsprite:
@@ -149,6 +149,7 @@ ScoreLeft2 = None
 ScoreLeft3 = None
 ScoreLeft4 = None
 ScoreLeft5 = None
+
 ScoreRight1 = None
 ScoreRight2 = None
 ScoreRight3 = None
@@ -157,11 +158,13 @@ ScoreRight5 = None
 
 def step():
     global ballsprite
+    
     global ScoreLeft1
     global ScoreLeft2
     global ScoreLeft3
     global ScoreLeft4
     global ScoreLeft5
+    
     global ScoreRight1
     global ScoreRight2
     global ScoreRight3
@@ -216,9 +219,10 @@ def step():
             elif ScoreRight2 and Rightcollisions:
                 ScoreRight3 = ScoreRight(1000, 5)
             elif ScoreRight1 and Rightcollisions:
-                ScoreRight2 = ScoreLeft(1008, 5)
+                ScoreRight2 = ScoreRight(1008, 5)
             elif Rightcollisions:
-                ScoreRight1 = ScoreLeft(1016, 5)
+                ScoreRight1 = ScoreRight(1016, 5)
+            
             
             if ScoreLeft5:
                 print("Player Right Wins!")
