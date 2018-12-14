@@ -142,7 +142,10 @@ if ballsprite:
     ballsprite.vy = 5
     ballsprite.vx = 5
 
-
+Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
+Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
+ScoreLeft1 = None
+ScoreLeft2 = None
 
 def step():
     global ballsprite
@@ -173,8 +176,12 @@ def step():
             print("Right Wins!")
             if ballsprite:
                 ballsprite.destroy()
+            if ScoreLeft1 and Leftcollisions:
+                ScoreLeft2 = ScoreLeft(12,5)
+            elif Leftcollisions:
                 ScoreLeft1 = ScoreLeft(5,5)
-            if 
+              
+            
             
             ballsprite = Ball(900, 100)
             ballsprite.vy = 5
@@ -192,10 +199,9 @@ def step():
             ballsprite.vx = 5
             ballsprite.x += ballsprite.vx
         #-----------------------------------------------------------------------
-        LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
-        RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
-        if LeftcollisionsScore and ScoreLeft1:
-            ScoreLeft2 = Score(12,5)
+        #LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
+        #RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
+        
             
             
         
