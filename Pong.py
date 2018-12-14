@@ -202,16 +202,16 @@ def step():
                 ballsprite.destroy()
                 ballsprite = None
             
-            if ScoreLeft4 and Leftcollisions:
-                ScoreLeft5 = ScoreLeft(37,5)
-            elif ScoreLeft3 and Leftcollisions:
-                ScoreLeft4 = ScoreLeft(29,5)
-            elif ScoreLeft2 and Leftcollisions:
-                ScoreLeft3 = ScoreLeft(21,5)
-            elif ScoreLeft1 and Leftcollisions:
-                ScoreLeft2 = ScoreLeft(13,5)
+            if ScoreRight4 and Leftcollisions:
+                ScoreRight5 = ScoreLeft(974,5)
+            elif ScoreRightt3 and Leftcollisions:
+                ScoreRight4 = ScoreLeft(982,5)
+            elif ScoreRight2 and Leftcollisions:
+                ScoreRight3 = ScoreLeft(990,5)
+            elif ScoreRight1 and Leftcollisions:
+                ScoreRight2 = ScoreLeft(998,5)
             elif Leftcollisions:
-                ScoreLeft1 = ScoreLeft(5,5)
+                ScoreRight1 = ScoreLeft(1006,5)
             
             
             
@@ -238,16 +238,16 @@ def step():
             ballsprite.x += ballsprite.vx
             
             if ScoreRight4 and Rightcollisions:
-                ScoreRight5 = ScoreRight(976, 5)
+                ScoreRight5 = ScoreRight(4, 5)
             elif ScoreRight3 and Rightcollisions:
-                ScoreRight4 = ScoreRight(984, 5)
+                ScoreRight4 = ScoreRight(12, 5)
             elif ScoreRight2 and Rightcollisions:
-                ScoreRight3 = ScoreRight(992, 5)
+                ScoreRight3 = ScoreRight(20, 5)
             elif ScoreRight1 and Rightcollisions:
-                ScoreRight2 = ScoreRight(1002, 5)
+                ScoreRight2 = ScoreRight(28, 5)
             elif Rightcollisions:
                 print("Make scoreright")
-                ScoreRight1 = ScoreRight(1010, 5)
+                ScoreRight1 = ScoreRight(36, 5)
         #-----------------------------------------------------------------------
         #LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
         #RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
