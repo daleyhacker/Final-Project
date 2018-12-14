@@ -149,6 +149,11 @@ ScoreLeft2 = None
 ScoreLeft3 = None
 ScoreLeft4 = None
 ScoreLeft5 = None
+ScoreRight1 = None
+ScoreRight2 = None
+ScoreRight3 = None
+ScoreRight4 = None
+ScoreRight5 = None
 
 def step():
     global ballsprite
@@ -157,6 +162,13 @@ def step():
     global ScoreLeft3
     global ScoreLeft4
     global ScoreLeft5
+    global ScoreRight1
+    global ScoreRight2
+    global ScoreRight3
+    global ScoreRight4
+    global ScoreRight5
+    
+    
     
     if ballsprite:
         ballsprite.y += ballsprite.vy
@@ -185,24 +197,31 @@ def step():
             print("Right Wins!")
             if ballsprite:
                 ballsprite.destroy()
+            
             if ScoreLeft4 and Leftcollisions:
-                ScoreLeft5 = ScoreLeft(33,5)
+                ScoreLeft5 = ScoreLeft(37,5)
             elif ScoreLeft3 and Leftcollisions:
-                ScoreLeft4 = ScoreLeft(26,5)
+                ScoreLeft4 = ScoreLeft(29,5)
             elif ScoreLeft2 and Leftcollisions:
-                ScoreLeft3 = ScoreLeft(19,5)
+                ScoreLeft3 = ScoreLeft(21,5)
             elif ScoreLeft1 and Leftcollisions:
-                ScoreLeft2 = ScoreLeft(12,5)
+                ScoreLeft2 = ScoreLeft(13,5)
             elif Leftcollisions:
                 ScoreLeft1 = ScoreLeft(5,5)
-              
             
+            if ScoreRight4 and Rightcollisions:
+                ScoreRight5 = ScoreLeft(
+             
             
-            ballsprite = Ball(900, 100)
-            ballsprite.vy = 5
-            ballsprite.y += ballsprite.vy
-            ballsprite.vx = -5
-            ballsprite.x += ballsprite.vx
+            if ScoreLeft5:
+                print("Player Right Wins!")
+                print("Game Over")
+            else:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -5
+                ballsprite.x += ballsprite.vx
             
         if Rightcollisions:
             print("Left Wins!")
