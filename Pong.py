@@ -149,6 +149,9 @@ ScoreLeft2 = None
 
 def step():
     global ballsprite
+    global ScoreLeft1
+    global ScoreLeft2
+    
     if ballsprite:
         ballsprite.y += ballsprite.vy
         ballsprite.x += ballsprite.vx
