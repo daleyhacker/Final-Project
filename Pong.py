@@ -135,7 +135,7 @@ class ScoreRight(Sprite):
     def __init__(self, x, y):
         self.vy = 0
         super().__init__(score, (x, y))
-
+#ScoreLeft(5,5)
 
 #-------------------------------------------------------------------------------
 if ballsprite:
@@ -173,11 +173,15 @@ def step():
             print("Right Wins!")
             if ballsprite:
                 ballsprite.destroy()
+                ScoreLeft1 = ScoreLeft(5,5)
+            if 
+            
             ballsprite = Ball(900, 100)
             ballsprite.vy = 5
             ballsprite.y += ballsprite.vy
             ballsprite.vx = -5
             ballsprite.x += ballsprite.vx
+            
         if Rightcollisions:
             print("Left Wins!")
             if ballsprite:
@@ -188,10 +192,11 @@ def step():
             ballsprite.vx = 5
             ballsprite.x += ballsprite.vx
         #-----------------------------------------------------------------------
-        Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
-        Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
-        if Leftcollisions:
-            ScoreLeft(5,5)
+        LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
+        RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
+        if LeftcollisionsScore and ScoreLeft1:
+            ScoreLeft2 = Score(12,5)
+            
             
         
         
