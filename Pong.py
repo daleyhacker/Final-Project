@@ -200,6 +200,7 @@ def step():
             print("Right Wins!")
             if ballsprite:
                 ballsprite.destroy()
+                ballsprite = None
             
             if ScoreLeft4 and Leftcollisions:
                 ScoreLeft5 = ScoreLeft(37,5)
@@ -212,16 +213,7 @@ def step():
             elif Leftcollisions:
                 ScoreLeft1 = ScoreLeft(5,5)
             
-            if ScoreRight4 and Rightcollisions:
-                ScoreRight5 = ScoreRight(984, 5)
-            elif ScoreRight3 and Rightcollisions:
-                ScoreRight4 = ScoreRight(992, 5)
-            elif ScoreRight2 and Rightcollisions:
-                ScoreRight3 = ScoreRight(1000, 5)
-            elif ScoreRight1 and Rightcollisions:
-                ScoreRight2 = ScoreRight(1008, 5)
-            elif Rightcollisions:
-                ScoreRight1 = ScoreRight(1016, 5)
+            
             
             
             if ScoreLeft5:
@@ -238,11 +230,24 @@ def step():
             print("Left Wins!")
             if ballsprite:
                 ballsprite.destroy()
+                ballsprite = None
             ballsprite = Ball(55, 100)
             ballsprite.vy = 5
             ballsprite.y += ballsprite.vy
             ballsprite.vx = 5
             ballsprite.x += ballsprite.vx
+            
+            if ScoreRight4 and Rightcollisions:
+                ScoreRight5 = ScoreRight(976, 5)
+            elif ScoreRight3 and Rightcollisions:
+                ScoreRight4 = ScoreRight(984, 5)
+            elif ScoreRight2 and Rightcollisions:
+                ScoreRight3 = ScoreRight(992, 5)
+            elif ScoreRight1 and Rightcollisions:
+                ScoreRight2 = ScoreRight(1002, 5)
+            elif Rightcollisions:
+                print("Make scoreright")
+                ScoreRight1 = ScoreRight(1010, 5)
         #-----------------------------------------------------------------------
         #LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
         #RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
