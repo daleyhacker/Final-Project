@@ -139,8 +139,8 @@ class ScoreRight(Sprite):
 
 #-------------------------------------------------------------------------------
 if ballsprite:
-    ballsprite.vy = 5
-    ballsprite.vx = 5
+    ballsprite.vy = 7
+    ballsprite.vx = 7
 
 Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
 Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
@@ -219,27 +219,27 @@ def step():
             
             elif ScoreRight4 or ScoreLeft3:
                 ballsprite = Ball(900, 100)
+                ballsprite.vy = 8.5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -8.5
+                ballsprite.x += ballsprite.vx
+            elif ScoreRight3 or ScoreLeft2:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 8
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -8
+                ballsprite.x += ballsprite.vx
+            elif ScoreRight2 or ScoreLeft1:
+                ballsprite = Ball(900, 100)
                 ballsprite.vy = 7.5
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = -7.5
                 ballsprite.x += ballsprite.vx
-            elif ScoreRight3 or ScoreLeft2:
+            elif ScoreRight1:
                 ballsprite = Ball(900, 100)
                 ballsprite.vy = 7
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = -7
-                ballsprite.x += ballsprite.vx
-            elif ScoreRight2 or ScoreLeft1:
-                ballsprite = Ball(900, 100)
-                ballsprite.vy = 6.5
-                ballsprite.y += ballsprite.vy
-                ballsprite.vx = -6.5
-                ballsprite.x += ballsprite.vx
-            elif ScoreRight1:
-                ballsprite = Ball(900, 100)
-                ballsprite.vy = 6
-                ballsprite.y += ballsprite.vy
-                ballsprite.vx = -6
                 ballsprite.x += ballsprite.vx
             '''else:
                 ballsprite = Ball(900, 100)
@@ -272,27 +272,27 @@ def step():
             
             elif ScoreLeft4 or ScoreRight3:
                 ballsprite = Ball(55, 100)
-                ballsprite.vy = 7.5
+                ballsprite.vy = 8.5
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = 7.5
                 ballsprite.x += ballsprite.vx
             elif ScoreLeft3 or ScoreRight2:
                 ballsprite = Ball(55, 100)
-                ballsprite.vy = 7
+                ballsprite.vy = 8
                 ballsprite.y += ballsprite.vy
-                ballsprite.vx = 7
+                ballsprite.vx = 8
                 ballsprite.x += ballsprite.vx
             elif ScoreLeft2 or ScoreRight1:
                 ballsprite = Ball(55, 100)
-                ballsprite.vy = 6.5
+                ballsprite.vy = 7.5
                 ballsprite.y += ballsprite.vy
-                ballsprite.vx = 6.5
+                ballsprite.vx = 7.5
                 ballsprite.x += ballsprite.vx
             elif ScoreLeft1:
                 ballsprite = Ball(55, 100)
-                ballsprite.vy = 6
+                ballsprite.vy = 7
                 ballsprite.y += ballsprite.vy
-                ballsprite.vx = 6
+                ballsprite.vx = 7
                 ballsprite.x += ballsprite.vx
             '''else:
                 ballsprite = Ball(55, 100)
