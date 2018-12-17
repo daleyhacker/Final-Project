@@ -204,7 +204,7 @@ def step():
             
             if ScoreRight4 and Leftcollisions:
                 ScoreRight5 = ScoreLeft(974,5)
-            elif ScoreRightt3 and Leftcollisions:
+            elif ScoreRight3 and Leftcollisions:
                 ScoreRight4 = ScoreLeft(982,5)
             elif ScoreRight2 and Leftcollisions:
                 ScoreRight3 = ScoreLeft(990,5)
@@ -213,10 +213,7 @@ def step():
             elif Leftcollisions:
                 ScoreRight1 = ScoreLeft(1006,5)
             
-            
-            
-            
-            if ScoreLeft5:
+            if ScoreRight5:
                 print("Player Right Wins!")
                 print("Game Over")
             else:
@@ -231,23 +228,51 @@ def step():
             if ballsprite:
                 ballsprite.destroy()
                 ballsprite = None
-            ballsprite = Ball(55, 100)
-            ballsprite.vy = 5
-            ballsprite.y += ballsprite.vy
-            ballsprite.vx = 5
-            ballsprite.x += ballsprite.vx
             
-            if ScoreRight4 and Rightcollisions:
-                ScoreRight5 = ScoreRight(4, 5)
-            elif ScoreRight3 and Rightcollisions:
-                ScoreRight4 = ScoreRight(12, 5)
-            elif ScoreRight2 and Rightcollisions:
-                ScoreRight3 = ScoreRight(20, 5)
-            elif ScoreRight1 and Rightcollisions:
-                ScoreRight2 = ScoreRight(28, 5)
+            if ScoreLeft4 and Rightcollisions:
+                ScoreLeft5 = ScoreLeft(36, 5)
+            elif ScoreLeft3 and Rightcollisions:
+                ScoreLeft4 = ScoreLeft(28, 5)
+            elif ScoreLeft2 and Rightcollisions:
+                ScoreLeft3 = ScoreLeft(20, 5)
+            elif ScoreLeft1 and Rightcollisions:
+                ScoreLeft2 = ScoreLeft(12, 5)
             elif Rightcollisions:
-                print("Make scoreright")
-                ScoreRight1 = ScoreRight(36, 5)
+                ScoreLeft1 = ScoreLeft(4, 5)
+                
+            if ScoreLeft5:
+                print("Player Left Wins!")
+                print("Game Over")
+            elif ScoreLeft4:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 8
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 8
+                ballsprite.x += ballsprite.vx
+            elif ScoreLeft3:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 7.5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 7.5
+                ballsprite.x += ballsprite.vx
+            elif ScoreLeft2:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 6
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 6
+                ballsprite.x += ballsprite.vx
+            elif ScoreLeft1:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 5
+                ballsprite.x += ballsprite.vx
+            '''else:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 5
+                ballsprite.x += ballsprite.vx'''
         #-----------------------------------------------------------------------
         #LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
         #RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
