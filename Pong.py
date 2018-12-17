@@ -178,19 +178,19 @@ def step():
         ballsprite.x += ballsprite.vx
         Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
         if Upcollisions:
-            ballsprite.vy = 5
+            ballsprite.vy = -ballsprite.vy
             ballsprite.y += ballsprite.vy
         Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
         if Downcollisions:
-            ballsprite.vy = -5
+            ballsprite.vy = -ballsprite.vy
             ballsprite.y += ballsprite.vy
         PlayerLeftcollisions = ballsprite.collidingWithSprites(Playerleft)
         if PlayerLeftcollisions:
-            ballsprite.vx = 5
+            ballsprite.vx = -ballsprite.vx
             ballsprite.x += ballsprite.vx
         PlayerRightcollisions = ballsprite.collidingWithSprites(Playerright)
         if PlayerRightcollisions:
-            ballsprite.vx = -5
+            ballsprite.vx = -ballsprite.vx
             ballsprite.x += ballsprite.vx
          #----------------------------------------------------------------------
          #When ball hits wall behind the players
@@ -216,12 +216,38 @@ def step():
             if ScoreRight5:
                 print("Player Right Wins!")
                 print("Game Over")
-            else:
+            
+            elif ScoreRight4:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 7.5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -7.5
+                ballsprite.x += ballsprite.vx
+            elif ScoreRight3:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 7
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -7
+                ballsprite.x += ballsprite.vx
+            elif ScoreRight2:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 6
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -6
+                ballsprite.x += ballsprite.vx
+            elif ScoreRight1:
+                ballsprite = Ball(900, 100)
+                ballsprite.vy = 5.5
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = -5.5
+                ballsprite.x += ballsprite.vx
+            '''else:
                 ballsprite = Ball(900, 100)
                 ballsprite.vy = 5
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = -5
-                ballsprite.x += ballsprite.vx
+                ballsprite.x += ballsprite.vx'''
+            
             
         if Rightcollisions:
             print("Left Wins!")
@@ -243,29 +269,30 @@ def step():
             if ScoreLeft5:
                 print("Player Left Wins!")
                 print("Game Over")
-            elif ScoreLeft4:
-                ballsprite = Ball(55, 100)
-                ballsprite.vy = 8
-                ballsprite.y += ballsprite.vy
-                ballsprite.vx = 8
-                ballsprite.x += ballsprite.vx
-            elif ScoreLeft3:
+            
+            elif ScoreLeft4 or ScoreRight4:
                 ballsprite = Ball(55, 100)
                 ballsprite.vy = 7.5
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = 7.5
                 ballsprite.x += ballsprite.vx
-            elif ScoreLeft2:
+            elif ScoreLeft3 or ScoreRight3:
+                ballsprite = Ball(55, 100)
+                ballsprite.vy = 7
+                ballsprite.y += ballsprite.vy
+                ballsprite.vx = 7
+                ballsprite.x += ballsprite.vx
+            elif ScoreLeft2 or ScoreRight2:
                 ballsprite = Ball(55, 100)
                 ballsprite.vy = 6
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = 6
                 ballsprite.x += ballsprite.vx
-            elif ScoreLeft1:
+            elif ScoreLeft1 or ScoreRight1:
                 ballsprite = Ball(55, 100)
-                ballsprite.vy = 5
+                ballsprite.vy = 5.5
                 ballsprite.y += ballsprite.vy
-                ballsprite.vx = 5
+                ballsprite.vx = 5.5
                 ballsprite.x += ballsprite.vx
             '''else:
                 ballsprite = Ball(55, 100)
