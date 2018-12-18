@@ -352,8 +352,7 @@ def step():
                 ballsprite.vx = 5
                 ballsprite.x += ballsprite.vx'''
         #-----------------------------------------------------------------------
-        #LeftcollisionsScore=ballsprite.collidingWithSprites(BoarderLeft)
-        #RightcollisionsScore=ballsprite.collidingWithSprites(BoarderRight)
+        
         
             
             
