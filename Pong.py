@@ -29,6 +29,10 @@ greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
+Leftname = input("What is the player on the left side's name?")
+Rightname =input("What is the player on the right side's name?")
+
+
 #-------------------------------------------------------------------------------
 #Boarder
 boarderup = RectangleAsset(1016,1, blkline, black)
@@ -197,7 +201,7 @@ def step():
         Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
         Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
         if Leftcollisions:
-            print("Right Wins!")
+            print(Rightname+" Wins!")
             if ballsprite:
                 ballsprite.destroy()
                 ballsprite = None
@@ -214,7 +218,7 @@ def step():
                 ScoreRight1 = ScoreLeft(1006,5)
             
             if ScoreRight5:
-                print("Player Right Wins!")
+                print(Rightname +" Wins!")
                 print("Game Over")
             
             elif ScoreRight4 or ScoreLeft3:
@@ -250,7 +254,7 @@ def step():
             
             
         if Rightcollisions:
-            print("Left Wins!")
+            print(Leftname + " Wins!")
             if ballsprite:
                 ballsprite.destroy()
                 ballsprite = None
@@ -267,7 +271,7 @@ def step():
                 ScoreLeft1 = ScoreLeft(4, 5)
                 
             if ScoreLeft5:
-                print("Player Left Wins!")
+                print(Leftname + " Wins!")
                 print("Game Over")
             
             elif ScoreLeft4 or ScoreRight3:
