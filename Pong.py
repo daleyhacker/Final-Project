@@ -254,13 +254,13 @@ def step():
                 ballsprite = None
             
             if ScoreRight4 and Leftcollisions:
-                ScoreRight5 = ScoreLeft(974,5)
+                ScoreRight5 = ScoreLeft(966,5)
             elif ScoreRight3 and Leftcollisions:
-                ScoreRight4 = ScoreLeft(982,5)
+                ScoreRight4 = ScoreLeft(976,5)
             elif ScoreRight2 and Leftcollisions:
-                ScoreRight3 = ScoreLeft(990,5)
+                ScoreRight3 = ScoreLeft(986,5)
             elif ScoreRight1 and Leftcollisions:
-                ScoreRight2 = ScoreLeft(998,5)
+                ScoreRight2 = ScoreLeft(996,5)
             elif Leftcollisions:
                 ScoreRight1 = ScoreLeft(1006,5)
             
@@ -307,13 +307,13 @@ def step():
                 ballsprite = None
             
             if ScoreLeft4 and Rightcollisions:
-                ScoreLeft5 = ScoreLeft(36, 5)
+                ScoreLeft5 = ScoreLeft(44, 5)
             elif ScoreLeft3 and Rightcollisions:
-                ScoreLeft4 = ScoreLeft(28, 5)
+                ScoreLeft4 = ScoreLeft(34, 5)
             elif ScoreLeft2 and Rightcollisions:
-                ScoreLeft3 = ScoreLeft(20, 5)
+                ScoreLeft3 = ScoreLeft(24, 5)
             elif ScoreLeft1 and Rightcollisions:
-                ScoreLeft2 = ScoreLeft(12, 5)
+                ScoreLeft2 = ScoreLeft(14, 5)
             elif Rightcollisions:
                 ScoreLeft1 = ScoreLeft(4, 5)
                 
