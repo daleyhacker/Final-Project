@@ -196,25 +196,25 @@ def step():
     global ScoreRight5
     
     if skeyisdown:
-        PlayerLeft.y += 1
+        PlayerLeft.y += 5
         Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
         while Downcollisions:
-            PlayerLeft.y -=1
+            PlayerLeft.y -=5
             Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
     if wkeyisdown:
-        PlayerLeft.y -=1
+        PlayerLeft.y -=5
         Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
         while Upcollisions:
-            PlayerLeft.y +=1
+            PlayerLeft.y +=5
             Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
     if uparrowisdown:
-        PlayerRight.y -=10
+        PlayerRight.y -=5
         Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
         while Upcollisions:
             PlayerRight.y +=1
             Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
     if downarrowdown:
-        PlayerRight.y +=10
+        PlayerRight.y +=5
         Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
         while Downcollisions:
             PlayerRight.y -=1
@@ -248,7 +248,7 @@ def step():
         Leftcollisions=ballsprite.collidingWithSprites(BoarderLeft)
         Rightcollisions=ballsprite.collidingWithSprites(BoarderRight)
         if Leftcollisions:
-            print(Rightname+" Wins!")
+            
             if ballsprite:
                 ballsprite.destroy()
                 ballsprite = None
@@ -265,6 +265,7 @@ def step():
                 ScoreRight1 = ScoreLeft(1006,5)
             
             if ScoreRight5:
+                print(Rightname + " Wins!")
                 print("Game Over")
             
             elif ScoreRight4 or ScoreLeft3:
@@ -300,7 +301,7 @@ def step():
             
             
         if Rightcollisions:
-            print(Leftname + " Wins!")
+            
             if ballsprite:
                 ballsprite.destroy()
                 ballsprite = None
@@ -317,6 +318,7 @@ def step():
                 ScoreLeft1 = ScoreLeft(4, 5)
                 
             if ScoreLeft5:
+                print(Leftname + " Wins!")
                 print("Game Over")
             
             elif ScoreLeft4 or ScoreRight3:
