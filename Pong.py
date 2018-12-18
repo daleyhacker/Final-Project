@@ -105,24 +105,31 @@ class Playerright(Sprite):
         self.vy = 0
         super().__init__(player, (x, y))
 PlayerRight = Playerright(1000, 100)
-
+#---------------------------------
+global uparrowisdown
+uparrowisdown = False
 def uparrowkey(event):
-    PlayerRight.y -=10
-    Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
-    while Upcollisions:
-        PlayerRight.y +=1
-        Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
-uparrowkeydown = myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
-#uparrowkeyup = myapp.listenKeyEvent('keyup', 'up arrow', uparrowkey)
+    global uparrowisdown
+    uparrowisdown = True
 
+myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
+
+def uparrowkeyup(event):
+    global uparrowisdown
+    uparrowisdown = False
+myapp.listenKeyEvent('keyup', 'up arrow', uparrowkeyup)
+#------------------------------
+global downarrowdown
+downarrowdown = False
 def downarrowkey(event):
-    PlayerRight.y +=10
-    Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
-    while Downcollisions:
-        PlayerRight.y -=1
-        Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
+    global downarrowdown
+    downarrowdown = True
 downarrowkeydown = myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
-#downarrowkeyup = myapp.listenKeyEvent('keyup', 'down arrow', downarrowkey)
+
+def downarrowkeyup(event):
+    global downarrowdown
+    downarrowdown = False
+myapp.listenKeyEvent('keyup', 'down arrow', downarrowkeyup)
 
 #-------------------------------------------------------------------------------
 
@@ -199,6 +206,19 @@ def step():
         while Upcollisions:
             PlayerLeft.y +=1
             Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
+    if uparrowisdown:
+        PlayerRight.y -=10
+        Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
+        while Upcollisions:
+            PlayerRight.y +=1
+            Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
+    if downarrowdown:
+        PlayerRight.y +=10
+        Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
+        while Downcollisions:
+            PlayerRight.y -=1
+            Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
+        
     
     if ballsprite:
         ballsprite.y += ballsprite.vy
