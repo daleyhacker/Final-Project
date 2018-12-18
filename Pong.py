@@ -77,12 +77,13 @@ wkeyisdown = False
 def wkey(event):
     global wkeyisdown
     wkeyisdown = True
-    myapp.listenKeyEvent('keydown', 'w', wkey)
+myapp.listenKeyEvent('keydown', 'w', wkey)
 
 def wkeyup(event):
     global wkeyisdown
     wkeyisdown = False
 myapp.listenKeyEvent('keyup', 'w', wkeyup)
+
 #--------------------------
 global skeyisdown
 skeyisdown = False
