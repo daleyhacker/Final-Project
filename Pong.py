@@ -29,8 +29,10 @@ greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid=RectangleAsset(30,30,gridline,white)
 
-Leftname = input("What is the player on the left side's name?")
-Rightname =input("What is the player on the right side's name?")
+
+
+Leftname = input("What is the player on the left side's name? ")
+Rightname =input("What is the player on the right side's name? ")
 
 
 #-------------------------------------------------------------------------------
@@ -69,23 +71,31 @@ class Playerleft(Sprite):
         self.vy = 0
         super().__init__(player, (x, y))
 PlayerLeft = Playerleft(0, 101)
-
+#----------------------------
+global wkeyisdown
+wkeyisdown = False
 def wkey(event):
-    PlayerLeft.y -=10
-    Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
-    while Upcollisions:
-        PlayerLeft.y +=1
-        Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
-myapp.listenKeyEvent('keydown', 'w', wkey)
+    global wkeyisdown
+    wkeyisdown = True
+    myapp.listenKeyEvent('keydown', 'w', wkey)
 
-
+def wkeyup(event):
+    global wkeyisdown
+    wkeyisdown = False
+myapp.listenKeyEvent('keyup', 'w', wkeyup)
+#--------------------------
+global skeyisdown
+skeyisdown = False
 def skey(event):
-    PlayerLeft.y += 10
-    Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
-    while Downcollisions:
-        PlayerLeft.y -=1
-        Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
+    global skeyisdown
+    skeyisdown = True
 myapp.listenKeyEvent('keydown', 's', skey)
+
+def skeyup(event):
+    global skeyisdown
+    skeyisdown = False
+myapp.listenKeyEvent('keyup', 's', skeyup)
+
 #-------------------------------------------------------------------------------
 #Player 2
 #PlayerRight = Sprite(player, (966,100))
@@ -102,7 +112,8 @@ def uparrowkey(event):
     while Upcollisions:
         PlayerRight.y +=1
         Upcollisions = PlayerRight.collidingWithSprites(BoarderUp)
-myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
+uparrowkeydown = myapp.listenKeyEvent('keydown', 'up arrow', uparrowkey)
+#uparrowkeyup = myapp.listenKeyEvent('keyup', 'up arrow', uparrowkey)
 
 def downarrowkey(event):
     PlayerRight.y +=10
@@ -110,7 +121,8 @@ def downarrowkey(event):
     while Downcollisions:
         PlayerRight.y -=1
         Downcollisions = PlayerRight.collidingWithSprites(BoarderDown)
-myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
+downarrowkeydown = myapp.listenKeyEvent('keydown', 'down arrow', downarrowkey)
+#downarrowkeyup = myapp.listenKeyEvent('keyup', 'down arrow', downarrowkey)
 
 #-------------------------------------------------------------------------------
 
@@ -175,26 +187,40 @@ def step():
     global ScoreRight4
     global ScoreRight5
     
-    
+    if skeyisdown:
+        PlayerLeft.y += 1
+        Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
+        while Downcollisions:
+            PlayerLeft.y -=1
+            Downcollisions = PlayerLeft.collidingWithSprites(BoarderDown)
+    if wkeyisdown:
+        PlayerLeft.y -=1
+        Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
+        while Upcollisions:
+            PlayerLeft.y +=1
+            Upcollisions = PlayerLeft.collidingWithSprites(BoarderUp)
     
     if ballsprite:
         ballsprite.y += ballsprite.vy
         ballsprite.x += ballsprite.vx
         Upcollisions = ballsprite.collidingWithSprites(BoarderUp)
-        if Upcollisions:
-            ballsprite.vy = -ballsprite.vy
-            ballsprite.y += ballsprite.vy
         Downcollisions = ballsprite.collidingWithSprites(BoarderDown)
-        if Downcollisions:
-            ballsprite.vy = -ballsprite.vy
-            ballsprite.y += ballsprite.vy
         PlayerLeftcollisions = ballsprite.collidingWithSprites(Playerleft)
-        if PlayerLeftcollisions:
-            ballsprite.vx = -ballsprite.vx
-            ballsprite.x += ballsprite.vx
         PlayerRightcollisions = ballsprite.collidingWithSprites(Playerright)
+        if Upcollisions:
+            ballsprite.vy = -(ballsprite.vy -.1)
+            ballsprite.y += ballsprite.vy
+        
+        if Downcollisions:
+            ballsprite.vy = -(ballsprite.vy +.1)
+            ballsprite.y += ballsprite.vy
+        
+        if PlayerLeftcollisions:
+            ballsprite.vx = -(ballsprite.vx -.1)
+            ballsprite.x += ballsprite.vx
+        
         if PlayerRightcollisions:
-            ballsprite.vx = -ballsprite.vx
+            ballsprite.vx = -(ballsprite.vx +.1)
             ballsprite.x += ballsprite.vx
          #----------------------------------------------------------------------
          #When ball hits wall behind the players
@@ -218,7 +244,6 @@ def step():
                 ScoreRight1 = ScoreLeft(1006,5)
             
             if ScoreRight5:
-                print(Rightname +" Wins!")
                 print("Game Over")
             
             elif ScoreRight4 or ScoreLeft3:
@@ -271,7 +296,6 @@ def step():
                 ScoreLeft1 = ScoreLeft(4, 5)
                 
             if ScoreLeft5:
-                print(Leftname + " Wins!")
                 print("Game Over")
             
             elif ScoreLeft4 or ScoreRight3:
