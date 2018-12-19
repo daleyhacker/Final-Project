@@ -34,7 +34,7 @@ grid=RectangleAsset(30,30,gridline,white)
 Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
 
-LeftTA = (Leftname, style = "40pt Arial", width = 200, fill = black)
+LeftTA = (Leftname, style="bold 40pt Arial", width=200, fill=black)
 
 
 #-------------------------------------------------------------------------------
