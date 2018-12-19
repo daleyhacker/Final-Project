@@ -2,7 +2,7 @@
 Patrick Daley
 """
 
-from ggame import App, Color, LineStyle, Sprite
+from ggame import App, Color, LineStyle, Sprite, TextAsset, Color
 from ggame import RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
 myapp = App(1017,512)
@@ -33,6 +33,8 @@ grid=RectangleAsset(30,30,gridline,white)
 
 Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
+
+LeftTA = (Leftname, style = "40pt Arial", width = 200, fill = black)
 
 
 #-------------------------------------------------------------------------------
