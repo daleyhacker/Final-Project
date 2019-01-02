@@ -271,7 +271,7 @@ def step():
             
             if ScoreRight5:
                 RightWins = TextAsset(Rightname + " Wins!", style="bold 60pt Arial", width=200, fill=green, align='center')
-                Sprite(RightWins,(350,200))
+                Sprite(RightWins,(375,200))
                 print(Rightname + " Wins!")
                 print("Game Over")
             
@@ -326,7 +326,7 @@ def step():
                 
             if ScoreLeft5:
                 LeftWins = TextAsset(Leftname + " Wins!", style="bold 60pt Arial", width=200, fill=green, align='center')
-                Sprite(LeftWins,(350,200))
+                Sprite(LeftWins,(375,200))
                 print(Leftname + " Wins!")
                 print("Game Over")
             
