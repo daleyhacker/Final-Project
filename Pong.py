@@ -34,8 +34,10 @@ grid=RectangleAsset(30,30,gridline,white)
 Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
 
-LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=black)
-Sprite(LeftTA, 100, 100)
+LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
+Sprite(LeftTA, (5, 30))
+RightTA = TextAsset(Rightname, style="bold 40pt Arial", width=200, fill=blue, align='right')
+Sprite(RightTA, (800, 30))
 
 
 #-------------------------------------------------------------------------------
@@ -268,6 +270,8 @@ def step():
                 ScoreRight1 = ScoreLeft(1006,5)
             
             if ScoreRight5:
+                RightWins = TextAsset(Rightname + " Wins!", style="bold 60pt Arial", width=200, fill=green, align='center')
+                Sprite(RightWins,(350,200))
                 print(Rightname + " Wins!")
                 print("Game Over")
             
@@ -321,6 +325,8 @@ def step():
                 ScoreLeft1 = ScoreLeft(4, 5)
                 
             if ScoreLeft5:
+                LeftWins = TextAsset(Leftname + " Wins!", style="bold 60pt Arial", width=200, fill=green, align='center')
+                Sprite(LeftWins,(350,200))
                 print(Leftname + " Wins!")
                 print("Game Over")
             
