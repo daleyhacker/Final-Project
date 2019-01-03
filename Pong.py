@@ -37,9 +37,12 @@ Rightname =input("What is the player on the right side's name? ")
 LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
 Sprite(LeftTA, (5, 30))
 RightTA = TextAsset(Rightname, style="bold 40pt Arial", width=200, fill=blue, align='right')
-Sprite(RightTA, (800, 30))
-
-
+RightTASprite = Sprite(RightTA, (816, 30))
+'''if RightTASprite:
+    while RightTASprite.collidingWithSprites(BoarderRight):
+        RIghtTASprite.x =+ 1
+        RightTASprite.collidingWithSprites(BoarderRight)
+'''
 #-------------------------------------------------------------------------------
 #Boarder
 boarderup = RectangleAsset(1016,1, blkline, black)
@@ -65,6 +68,7 @@ class BoarderRight(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderright, (x, y))
 BoarderRight(1015,100)
+
 #-------------------------------------------------------------------------------
 
 #Player 1
