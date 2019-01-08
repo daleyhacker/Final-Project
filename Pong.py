@@ -37,7 +37,11 @@ Rightname =input("What is the player on the right side's name? ")
 LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
 Sprite(LeftTA, (5, 30))
 RightTA = TextAsset(Rightname, style="bold 40pt Arial", width=200, fill=blue, align='right')
-RightTASprite = Sprite(RightTA, (816, 30))
+#RightTASprite = Sprite(RightTA, (816, 30))
+class RightText(Sprite):
+    def __init__(self, x, y):
+        super().__init__(RightTA, (x, y))
+RightText(816, 30)
 '''if RightTASprite:
     while RightTASprite.collidingWithSprites(BoarderRight):
         RIghtTASprite.x =+ 1
@@ -364,6 +368,12 @@ def step():
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = 5
                 ballsprite.x += ballsprite.vx'''
+    RText = RightText.collidingWithSprites(BoarderRight)
+    if RightText:
+        if RText:
+            while RText:
+                RightText.x+=1
+                RText = RightText.collidingWithSprites(BoarderRight)
         #-----------------------------------------------------------------------
         
         
