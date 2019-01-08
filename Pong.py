@@ -42,6 +42,8 @@ class RightText(Sprite):
     def __init__(self, x, y):
         super().__init__(RightTA, (x, y))
 RightText(816, 30)
+
+
 '''if RightTASprite:
     while RightTASprite.collidingWithSprites(BoarderRight):
         RIghtTASprite.x =+ 1
@@ -71,7 +73,17 @@ boarderright = RectangleAsset(1,511, blkline, black)
 class BoarderRight(Sprite):
     def __init__(self, x, y):
         super().__init__(boarderright, (x, y))
-BoarderRight(1015,100)
+BoarderRight(1015,0)
+#-------------------------------------------------------------------------------
+#Text Asset
+
+
+'''if RightText:
+    RText = RightText.collidingWithSprites(BoarderRight)
+    if RText:
+        while RText:
+            RightText.x-=1
+            RText = RightText.collidingWithSprites(BoarderRight)'''
 
 #-------------------------------------------------------------------------------
 
@@ -342,7 +354,7 @@ def step():
                 ballsprite = Ball(55, 100)
                 ballsprite.vy = 8.5
                 ballsprite.y += ballsprite.vy
-                ballsprite.vx = 7.5
+                ballsprite.vx = 8.5
                 ballsprite.x += ballsprite.vx
             elif ScoreLeft3 or ScoreRight2:
                 ballsprite = Ball(55, 100)
@@ -368,12 +380,7 @@ def step():
                 ballsprite.y += ballsprite.vy
                 ballsprite.vx = 5
                 ballsprite.x += ballsprite.vx'''
-    RText = RightText.collidingWithSprites(BoarderRight)
-    if RightText:
-        if RText:
-            while RText:
-                RightText.x+=1
-                RText = RightText.collidingWithSprites(BoarderRight)
+    
         #-----------------------------------------------------------------------
         
         
