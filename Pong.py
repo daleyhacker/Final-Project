@@ -36,6 +36,9 @@ while len(Leftname)>7:
     print("Name to long.")
     Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
+while len(Rightname)>7:
+    print("Name to long.")
+    Leftname = input("What is the player on the right side's name? ")
 
 LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
 Sprite(LeftTA, (5, 30))
