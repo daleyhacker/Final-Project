@@ -33,12 +33,12 @@ grid=RectangleAsset(30,30,gridline,white)
 
 Leftname = input("What is the player on the left side's name? ")
 while len(Leftname)>7:
-    print("Name to long.")
+    print("Name to long. Must be fewer than 7 letters. ")
     Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
 while len(Rightname)>7:
-    print("Name to long.")
-    Leftname = input("What is the player on the right side's name? ")
+    print("Name to long. Must be fewer than 7 letters. ")
+    Rightname = input("What is the player on the right side's name? ")
 
 LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
 Sprite(LeftTA, (5, 30))
