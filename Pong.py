@@ -32,6 +32,9 @@ grid=RectangleAsset(30,30,gridline,white)
 
 
 Leftname = input("What is the player on the left side's name? ")
+while len(Leftname)>7:
+    print("Name to long.")
+    Leftname = input("What is the player on the left side's name? ")
 Rightname =input("What is the player on the right side's name? ")
 
 LeftTA = TextAsset(Leftname, style="bold 40pt Arial", width=200, fill=blue, align='left')
@@ -45,6 +48,8 @@ RightText(816, 30)
 
 print(Leftname + " use the W and S keys to move.")
 print(Rightname + " use the up and down arrows to move.")
+
+Continue= input("Press enter to continue.")
 
 '''if RightTASprite:
     while RightTASprite.collidingWithSprites(BoarderRight):
