@@ -43,6 +43,8 @@ class RightText(Sprite):
         super().__init__(RightTA, (x, y))
 RightText(816, 30)
 
+print(Leftname + " use the W and S keys to move.")
+print(Rightname + " use the up and down arrows to move.")
 
 '''if RightTASprite:
     while RightTASprite.collidingWithSprites(BoarderRight):
